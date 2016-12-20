@@ -10,7 +10,7 @@ def checkio(expression):
         if symbol in mapa.values():
             stack.append(symbol)
         elif symbol in mapa.keys():
-            if stack[-1] == mapa[symbol]:
+            if len(stack) > 0 and stack[-1] == mapa[symbol]:
                 stack.pop()
             else:
                 is_correct = False
@@ -27,3 +27,4 @@ if __name__ == '__main__':
     assert checkio("[1+1]+(2*2)-{3/3}") == True, "Different operators"
     assert checkio("(({[(((1)-2)+3)-3]/3}-3)") == False, "One is redundant"
     assert checkio("2+3") == True, "No brackets, no problem"
+    assert checkio("(((1+(1+1))))]") == False
