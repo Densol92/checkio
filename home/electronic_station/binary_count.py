@@ -1,9 +1,6 @@
 def checkio(number):
-    ones = 0
     binary = bin(number)
-    for c in binary:
-        if c == '1':
-            ones += 1
+    ones = binary.count('1')
     return ones
 
 #These "asserts" using only for self-checking and not necessary for auto-testing
